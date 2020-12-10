@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using SimpleFarmLog.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,12 @@ namespace SimpleFarmLog
 
         public void Run()
         {
-            _logger.LogInformation("Hello World");
+            var boar = new Boar() { Id = Guid.NewGuid().ToString(), Color = Enums.Color.Black, StartDate = DateTime.Now, Weight = 88 };
+            var herd = new BoarHerd() {  Boars = new List<Boar>() { boar } };
+
+
+            _logger.LogInformation("boar = {@boar}", herd.Boars[0]);
+            _logger.LogInformation("herd {date}", herd.InitDate);
         }
     }
 }
