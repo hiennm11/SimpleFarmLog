@@ -10,8 +10,7 @@ namespace SimpleFarmLog.Entities
         public string Name { get; set; }
         public double Amount { get; set; }
 
-        public List<PurchaseLog> PurchaseLogs { get; set; }
-        public ICollection<Fodder> Fodders { get; set; }
+        public List<PurchaseLog> PurchaseLogs { get; set; }      
         public List<MixLog> MixLogs { get; set; }
 
     }

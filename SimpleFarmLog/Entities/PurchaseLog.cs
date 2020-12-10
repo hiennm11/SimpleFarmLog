@@ -6,10 +6,11 @@ namespace SimpleFarmLog.Entities
 {
     public class PurchaseLog
     {
+        public string PurchaseId { get; set; }
         public string Id { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public double Quantity { get; set; }
+        public double Amount { get; set; }
 
 
         public Ingredient Ingredient { get; set; }

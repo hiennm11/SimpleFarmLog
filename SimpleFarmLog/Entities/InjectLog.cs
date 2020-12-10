@@ -9,7 +9,7 @@ namespace SimpleFarmLog.Entities
         public string HerdId { get; set; }
         public string MedicineId { get; set; }
         public DateTime InjectDate { get; set; }
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         public BoarHerd BoarHerd { get; set; }
         public Medicine Medicine { get; set; }
