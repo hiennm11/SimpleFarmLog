@@ -14,7 +14,7 @@ namespace SimpleFarmLog
 {
     class Program
     {       
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             var builder = new ConfigurationBuilder();
 
@@ -47,13 +47,13 @@ namespace SimpleFarmLog
                     service.AddTransient<IGenericRepository<MixLog>, GenericRepository<MixLog>>();
                     service.AddTransient<IUnitOfWork, UnitOfWork>();
 
-                    service.AddTransient<ISimpleFarmLog, SimpleFarmLog>();
+                    //service.AddTransient<ISimpleFarmLog, SimpleFarmLog>();
                 })
                 .UseSerilog()
                 .Build();
 
             var service = ActivatorUtilities.CreateInstance<SimpleFarmLog>(host.Services);
-            await service.Run();
+            service.Run();
         }
 
         static void BuildConfig(IConfigurationBuilder builder)
