@@ -92,7 +92,7 @@ namespace SimpleFarmLog.EF
                 .WithMany(x => x.PurchaseLogs);
             modelBuilder.Entity<PurchaseLog>().HasKey(t => t.PurchaseId);
             modelBuilder.Entity<PurchaseLog>().Property(a => a.Amount).HasDefaultValue(0);
-            modelBuilder.Entity<PurchaseLog>().Property(a => a.Price).HasDefaultValue(0);
+            modelBuilder.Entity<PurchaseLog>().Property(a => a.Price).HasColumnType("decimal(18,2)").HasDefaultValue(0);
             modelBuilder.Entity<PurchaseLog>().Property(a => a.PurchaseDate).HasDefaultValue(DateTime.Now);
         }
 

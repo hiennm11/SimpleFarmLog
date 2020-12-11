@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleFarmLog.Repositories
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private readonly AppDbContext _dbContext;
         private bool disposed = false;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimpleFarmLog.Repositories
 {
-    public class GenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly AppDbContext _dbContext;
         private DbSet<T> _dbSet;
@@ -121,6 +121,6 @@ namespace SimpleFarmLog.Repositories
         {
             T entityToDelete = await _dbSet.FindAsync(id);
             Delete(entityToDelete);
-        }   
+        }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace SimpleFarmLog
+﻿using System.Threading.Tasks;
+
+namespace SimpleFarmLog
 {
     interface ISimpleFarmLog
     {
-        void Run();
+        Task Run();
     }
 }
