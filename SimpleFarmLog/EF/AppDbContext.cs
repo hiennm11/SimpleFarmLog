@@ -18,6 +18,7 @@ namespace SimpleFarmLog.EF
             //FluentAPI Relationship
             //Boar
             modelBuilder.Entity<Boar>().HasKey(a => a.Id);
+            modelBuilder.Entity<Boar>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Boar>().HasOne(a => a.Herd).WithMany(x => x.Boars);
             modelBuilder.Entity<Boar>().Property(a => a.StartDate).HasDefaultValue(DateTime.Now);
             modelBuilder.Entity<Boar>().Property(a => a.Color).HasDefaultValue(Color.Black);
@@ -25,20 +26,24 @@ namespace SimpleFarmLog.EF
             modelBuilder.Entity<Boar>().Property(a => a.Number).HasDefaultValue(0);
 
             //Herd
-            modelBuilder.Entity<BoarHerd>().HasKey(a => a.Id);          
+            modelBuilder.Entity<BoarHerd>().HasKey(a => a.Id);
+            modelBuilder.Entity<BoarHerd>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<BoarHerd>().Property(a => a.InitDate).HasDefaultValue(DateTime.Now);
             modelBuilder.Entity<BoarHerd>().Property(a => a.Number).HasDefaultValue(0);
 
             //Medicine
-            modelBuilder.Entity<Medicine>().HasKey(a => a.Id);            
+            modelBuilder.Entity<Medicine>().HasKey(a => a.Id);
+            modelBuilder.Entity<Medicine>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Medicine>().Property(a => a.Amount).HasDefaultValue(0);
 
             //Fodder
-            modelBuilder.Entity<Fodder>().HasKey(a => a.Id);          
+            modelBuilder.Entity<Fodder>().HasKey(a => a.Id);
+            modelBuilder.Entity<Fodder>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Fodder>().Property(a => a.Amount).HasDefaultValue(0);
 
             //Ingre
-            modelBuilder.Entity<Ingredient>().HasKey(a => a.Id);           
+            modelBuilder.Entity<Ingredient>().HasKey(a => a.Id);
+            modelBuilder.Entity<Ingredient>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Ingredient>().Property(a => a.Amount).HasDefaultValue(0);
 
             //InjectLog
@@ -91,6 +96,7 @@ namespace SimpleFarmLog.EF
                 .HasOne(a => a.Medicine)
                 .WithMany(x => x.PurchaseLogs);
             modelBuilder.Entity<PurchaseLog>().HasKey(t => t.PurchaseId);
+            modelBuilder.Entity<PurchaseLog>().Property(a => a.PurchaseId).ValueGeneratedOnAdd();
             modelBuilder.Entity<PurchaseLog>().Property(a => a.Amount).HasDefaultValue(0);
             modelBuilder.Entity<PurchaseLog>().Property(a => a.Price).HasColumnType("decimal(18,2)").HasDefaultValue(0);
             modelBuilder.Entity<PurchaseLog>().Property(a => a.PurchaseDate).HasDefaultValue(DateTime.Now);

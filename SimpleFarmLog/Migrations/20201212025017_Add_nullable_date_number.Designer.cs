@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleFarmLog.EF;
 
 namespace SimpleFarmLog.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201212025017_Add_nullable_date_number")]
+    partial class Add_nullable_date_number
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.Boar", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Color")
@@ -49,7 +50,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime?>("StartDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 716, DateTimeKind.Local).AddTicks(9486));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 63, DateTimeKind.Local).AddTicks(455));
 
                     b.Property<double?>("Weight")
                         .HasColumnType("float");
@@ -64,7 +65,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.BoarHerd", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("EndDate")
@@ -73,7 +73,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime?>("InitDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 725, DateTimeKind.Local).AddTicks(1785));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 70, DateTimeKind.Local).AddTicks(1692));
 
                     b.Property<int?>("Number")
                         .ValueGeneratedOnAdd()
@@ -88,7 +88,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.Fodder", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Amount")
@@ -107,7 +106,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.Ingredient", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Amount")
@@ -139,7 +137,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime>("InjectDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 738, DateTimeKind.Local).AddTicks(5409));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 81, DateTimeKind.Local).AddTicks(3583));
 
                     b.HasKey("HerdId", "MedicineId");
 
@@ -151,7 +149,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.Medicine", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Amount")
@@ -186,7 +183,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime>("MixDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 740, DateTimeKind.Local).AddTicks(3547));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 82, DateTimeKind.Local).AddTicks(8415));
 
                     b.HasKey("FodderId", "IngredientId");
 
@@ -198,7 +195,6 @@ namespace SimpleFarmLog.Migrations
             modelBuilder.Entity("SimpleFarmLog.Entities.PurchaseLog", b =>
                 {
                     b.Property<string>("PurchaseId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Amount")
@@ -223,7 +219,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime>("PurchaseDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 744, DateTimeKind.Local).AddTicks(1430));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 85, DateTimeKind.Local).AddTicks(9636));
 
                     b.HasKey("PurchaseId");
 
@@ -250,7 +246,7 @@ namespace SimpleFarmLog.Migrations
                     b.Property<DateTime>("SeedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 12, 15, 52, 57, 741, DateTimeKind.Local).AddTicks(8786));
+                        .HasDefaultValue(new DateTime(2020, 12, 12, 9, 50, 17, 84, DateTimeKind.Local).AddTicks(1709));
 
                     b.HasKey("HerdId", "FodderId");
 

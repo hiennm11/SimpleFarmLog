@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using SimpleFarmLog.Entities;
 using SimpleFarmLog.Pages;
 using SimpleFarmLog.Repositories;
+using SimpleFarmLog.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,13 +14,20 @@ namespace SimpleFarmLog
 {
     class SimpleFarmLog : EasyConsole.Program 
     {
-        public SimpleFarmLog(ILogger<SimpleFarmLog> logger, IConfiguration configuration, IGenericRepository<Boar> boarRepo, IUnitOfWork unitOfWork) : base("My Family Farm Log", breadcrumbHeader: true)
+        public SimpleFarmLog(ILogger<SimpleFarmLog> logger,            
+            IBoarService boarService, 
+            IUnitOfWork unitOfWork)
+            : base("My Family Farm Log", breadcrumbHeader: true)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
             AddPage(new MainPage(this));
             AddPage(new InputPage(this));
-            AddPage(new ShowAllBoar(boarRepo, this));
+            AddPage(new BoarsPage(boarService, this));
+            AddPage(new BoarEntryPage(boarService, logger, this));
+            AddPage(new BoarEditPage(boarService, logger, "Boar Edit Page", this));
+            AddPage(new BoarDeletePage(boarService, logger, "Delete Boar", this));
+            AddPage(new HerdsPage("All herd", this));
 
             SetPage<MainPage>();
         }

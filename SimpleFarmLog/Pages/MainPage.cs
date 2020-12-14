@@ -5,11 +5,14 @@ using System.Text;
 
 namespace SimpleFarmLog.Pages
 {
-    public class MainPage : MenuPage
+    class MainPage : MenuPage
     {
         public MainPage(EasyConsole.Program program, params Option[] options)
             : base("Main Page", program,
-                  new Option("Xem tất cả heo", () => program.NavigateTo<ShowAllBoar>()))
+                  new Option("All boar", () => program.NavigateTo<BoarsPage>()),
+                  new Option("Input", () => program.NavigateTo<InputPage>()),
+                  new Option("Add boar", () => program.NavigateTo<BoarEntryPage>()),
+                  new Option("All herd", () => program.NavigateTo<HerdsPage>()))
         {
         }
        

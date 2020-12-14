@@ -6,6 +6,7 @@ using Serilog;
 using SimpleFarmLog.EF;
 using SimpleFarmLog.Entities;
 using SimpleFarmLog.Repositories;
+using SimpleFarmLog.Services;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -46,6 +47,8 @@ namespace SimpleFarmLog
                     service.AddTransient<IGenericRepository<PurchaseLog>, GenericRepository<PurchaseLog>>();
                     service.AddTransient<IGenericRepository<MixLog>, GenericRepository<MixLog>>();
                     service.AddTransient<IUnitOfWork, UnitOfWork>();
+
+                    service.AddTransient<IBoarService, BoarService>();
 
                     //service.AddTransient<ISimpleFarmLog, SimpleFarmLog>();
                 })

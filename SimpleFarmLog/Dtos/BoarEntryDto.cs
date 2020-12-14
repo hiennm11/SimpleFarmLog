@@ -3,15 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFarmLog.Entities
+namespace SimpleFarmLog.Dtos
 {
-    public class Boar : Animal
+    public class BoarEntryDto
     {
+        public DateTime? StartDate { get; set; }
+        public double? Weight { get; set; }
+        public Gender Gender { get; set; }
         public int? Number { get; set; }
         public Color Color { get; set; }
-
-        public string HerdId { get; set; }
-        public BoarHerd Herd { get; set; }
-
     }
 }
