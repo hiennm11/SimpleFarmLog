@@ -36,13 +36,14 @@ namespace SimpleFarmLog.Services
         {
             Boars = _boarRepo.Get(includeProperties: "Herd").MapToListDetail();          
 
-            var table = new ConsoleTable("STT", "Id", "Date", "Color", "Gender", "Weight", "Herd", "Herd Date", "Herd num");
+            var table = new ConsoleTable("STT", "Date", "Color", "Gender", "Weight", "Herd", "Herd Date", "Herd num");
 
             foreach (var item in Boars)
             {
-                table.AddRow(Boars.IndexOf(item), item.Id, item.StartDate, item.Color, item.Gender, item.Weight, item.HerdNumber, item.HerdInitDate, item.Number);               
+                table.AddRow(Boars.IndexOf(item), item.StartDate, item.Color, item.Gender, item.Weight, item.HerdNumber, item.HerdInitDate, item.Number);               
             }
 
+            Console.WriteLine();
             table.Write();
             Console.WriteLine();
         }

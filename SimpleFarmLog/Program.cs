@@ -49,6 +49,7 @@ namespace SimpleFarmLog
                     service.AddTransient<IUnitOfWork, UnitOfWork>();
 
                     service.AddTransient<IBoarService, BoarService>();
+                    service.AddTransient<IHerdService, HerdService>();
 
                     //service.AddTransient<ISimpleFarmLog, SimpleFarmLog>();
                 })

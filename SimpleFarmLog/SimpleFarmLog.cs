@@ -16,6 +16,7 @@ namespace SimpleFarmLog
     {
         public SimpleFarmLog(ILogger<SimpleFarmLog> logger,            
             IBoarService boarService, 
+            IHerdService herdService,
             IUnitOfWork unitOfWork)
             : base("My Family Farm Log", breadcrumbHeader: true)
         {
@@ -27,7 +28,7 @@ namespace SimpleFarmLog
             AddPage(new BoarEntryPage(boarService, logger, this));
             AddPage(new BoarEditPage(boarService, logger, "Boar Edit Page", this));
             AddPage(new BoarDeletePage(boarService, logger, "Delete Boar", this));
-            AddPage(new HerdsPage("All herd", this));
+            AddPage(new HerdsPage(herdService, logger, "All herd", this));
 
             SetPage<MainPage>();
         }

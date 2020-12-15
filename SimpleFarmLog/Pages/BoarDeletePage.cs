@@ -26,7 +26,7 @@ namespace SimpleFarmLog.Pages
 
             int length = _boarService.Boars.Count;
 
-            var number = Input.ReadInt($"Input stt (between 0 and {length}): ", min: 0, max: length);
+            var number = Input.ReadInt($"Input stt (between 0 and {length - 1}): ", min: 0, max: length - 1);
 
             var id = _boarService.Boars[number].Id;
 

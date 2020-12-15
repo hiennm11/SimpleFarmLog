@@ -9,7 +9,7 @@ namespace SimpleFarmLog.Entities
         public string IngredientId { get; set; }
         public string FodderId { get; set; }
         public double IngredientAmount { get; set; }
-        public DateTime MixDate { get; set; }
+        public DateTime MixDate { get; set; } = DateTime.Now;
 
 
         public Ingredient Ingredient { get; set; }

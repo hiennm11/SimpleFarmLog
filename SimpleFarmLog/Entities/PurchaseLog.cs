@@ -9,7 +9,7 @@ namespace SimpleFarmLog.Entities
         public string PurchaseId { get; set; }
         public string Id { get; set; }
         public decimal Price { get; set; }
-        public DateTime PurchaseDate { get; set; }
+        public DateTime PurchaseDate { get; set; } = DateTime.Now;
         public double Amount { get; set; }
 
 

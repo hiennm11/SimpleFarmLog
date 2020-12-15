@@ -20,7 +20,6 @@ namespace SimpleFarmLog.EF
             modelBuilder.Entity<Boar>().HasKey(a => a.Id);
             modelBuilder.Entity<Boar>().Property(a => a.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Boar>().HasOne(a => a.Herd).WithMany(x => x.Boars);
-            modelBuilder.Entity<Boar>().Property(a => a.StartDate).HasDefaultValue(DateTime.Now);
             modelBuilder.Entity<Boar>().Property(a => a.Color).HasDefaultValue(Color.Black);
             modelBuilder.Entity<Boar>().Property(a => a.Gender).HasDefaultValue(Gender.Male);
             modelBuilder.Entity<Boar>().Property(a => a.Number).HasDefaultValue(0);
@@ -28,7 +27,6 @@ namespace SimpleFarmLog.EF
             //Herd
             modelBuilder.Entity<BoarHerd>().HasKey(a => a.Id);
             modelBuilder.Entity<BoarHerd>().Property(a => a.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<BoarHerd>().Property(a => a.InitDate).HasDefaultValue(DateTime.Now);
             modelBuilder.Entity<BoarHerd>().Property(a => a.Number).HasDefaultValue(0);
 
             //Medicine
@@ -58,7 +56,6 @@ namespace SimpleFarmLog.EF
                .WithMany(m => m.InjectLogs)
                .HasForeignKey(h => h.HerdId);            
             modelBuilder.Entity<InjectLog>().Property(a => a.Amount).HasDefaultValue(0);
-            modelBuilder.Entity<InjectLog>().Property(a => a.InjectDate).HasDefaultValue(DateTime.Now);
 
             //MixLog
             modelBuilder.Entity<MixLog>()
@@ -72,7 +69,6 @@ namespace SimpleFarmLog.EF
             modelBuilder.Entity<MixLog>()
                 .HasKey(t => new { t.FodderId, t.IngredientId });
             modelBuilder.Entity<MixLog>().Property(a => a.IngredientAmount).HasDefaultValue(0);
-            modelBuilder.Entity<MixLog>().Property(a => a.MixDate).HasDefaultValue(DateTime.Now);
 
             //SeedLog
             modelBuilder.Entity<SeedLog>()
@@ -86,7 +82,6 @@ namespace SimpleFarmLog.EF
             modelBuilder.Entity<SeedLog>()
                 .HasKey(t => new { t.HerdId, t.FodderId });
             modelBuilder.Entity<SeedLog>().Property(a => a.Amount).HasDefaultValue(0);
-            modelBuilder.Entity<SeedLog>().Property(a => a.SeedDate).HasDefaultValue(DateTime.Now);
 
             //PurchaseLog
             modelBuilder.Entity<PurchaseLog>()
@@ -99,7 +94,7 @@ namespace SimpleFarmLog.EF
             modelBuilder.Entity<PurchaseLog>().Property(a => a.PurchaseId).ValueGeneratedOnAdd();
             modelBuilder.Entity<PurchaseLog>().Property(a => a.Amount).HasDefaultValue(0);
             modelBuilder.Entity<PurchaseLog>().Property(a => a.Price).HasColumnType("decimal(18,2)").HasDefaultValue(0);
-            modelBuilder.Entity<PurchaseLog>().Property(a => a.PurchaseDate).HasDefaultValue(DateTime.Now);
+          
         }
 
         public DbSet<Boar> Boars { get; set; }

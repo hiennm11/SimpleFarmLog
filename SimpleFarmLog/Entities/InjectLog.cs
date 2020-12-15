@@ -8,7 +8,7 @@ namespace SimpleFarmLog.Entities
     {
         public string HerdId { get; set; }
         public string MedicineId { get; set; }
-        public DateTime InjectDate { get; set; }
+        public DateTime InjectDate { get; set; } = DateTime.Now;
         public double Amount { get; set; }
 
         public BoarHerd BoarHerd { get; set; }
